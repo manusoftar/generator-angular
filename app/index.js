@@ -49,7 +49,7 @@ var Generator = module.exports = function Generator(args, options) {
     // attempt to detect if user is using CS or not
     // if cml arg provided, use that; else look for the existence of cs
     if (!this.options.coffee &&
-      this.expandFiles(path.join(this.appPath, '/scripts/**/*.coffee'), {}).length > 0) {
+      this.expandFiles(path.join(this.appPath, '/js/**/*.coffee'), {}).length > 0) {
       this.options.coffee = true;
     }
 
@@ -64,7 +64,7 @@ var Generator = module.exports = function Generator(args, options) {
     // attempt to detect if user is using TS or not
     // if cml arg provided, use that; else look for the existence of ts
     if (!this.options.typescript &&
-      this.expandFiles(path.join(this.appPath, '/scripts/**/*.ts'), {}).length > 0) {
+      this.expandFiles(path.join(this.appPath, '/js/**/*.ts'), {}).length > 0) {
       this.options.typescript = true;
     }
 
@@ -102,7 +102,7 @@ var Generator = module.exports = function Generator(args, options) {
         'coffee': this.options.coffee,
         'travis': true,
         'files-comments': bowerComments.join(','),
-        'app-files': 'app/scripts/**/*.' + jsExt,
+        'app-files': 'app/module/**/*.' + jsExt,
         'test-files': [
           'test/mock/**/*.' + jsExt,
           'test/spec/**/*.' + jsExt
